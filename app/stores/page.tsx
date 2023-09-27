@@ -1,3 +1,4 @@
+import Input from "@/components/common/Input";
 import Table from "@/components/common/Table";
 
 export default function Stores() {
@@ -35,6 +36,11 @@ export default function Stores() {
           },
         ]}
       />
+      <div className="my-10 max-w-xs space-y-2">
+        <Input label="First Name" id="firstName" />
+        <Input label="Last Name" id="lastName" />
+        <Input label="Age" id="age" />
+      </div>
     </div>
   );
 }
