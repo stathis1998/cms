@@ -6,7 +6,7 @@ export default function TopBar(props: TTopBarProps) {
   const {} = props;
 
   return (
-    <div className="bg-gray-900 h-16">
+    <div className="bg-gray-900 min-h-[4rem]">
       <div className="px-10 h-full flex items-center">
         <div className="relative">
           <input

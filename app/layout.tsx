@@ -30,7 +30,7 @@ export default function RootLayout({
         <Header />
         <div className="flex-grow flex flex-col">
           <TopBar />
-          <main className="flex-grow max-w-7xl mx-auto w-full p-10">
+          <main className="flex-grow max-w-7xl mx-auto w-full p-10 overflow-auto">
             {children}
           </main>
         </div>
