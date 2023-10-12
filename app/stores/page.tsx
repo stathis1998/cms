@@ -1,7 +1,41 @@
-import Input from "@/components/common/Input";
+"use client";
+
+import { useForm, Controller } from "react-hook-form";
+
+import Input, { TInputProps } from "@/components/common/Input";
 import Table from "@/components/common/Table";
+import Form from "@/components/common/Form";
+import { useState } from "react";
+
+const fields: TInputProps[] = [
+  {
+    label: "First Name",
+    id: "firstName",
+  },
+  {
+    label: "Last Name",
+    id: "lastName",
+  },
+  {
+    label: "Age",
+    id: "age",
+  },
+];
 
 export default function Stores() {
+  const [stores, setStores] = useState([
+    {
+      firstName: "Stathis",
+      lastName: "Stathopoulos",
+      age: "25",
+    },
+    {
+      firstName: "Andra",
+      lastName: "Toterman",
+      age: "25",
+    },
+  ]);
+
   return (
     <div>
       <div className="my-10 flex justify-between">
@@ -23,23 +57,15 @@ export default function Stores() {
             accessor: "age",
           },
         ]}
-        data={[
-          {
-            firstName: "Stathis",
-            lastName: "Stathopoulos",
-            age: 25,
-          },
-          {
-            firstName: "Andra",
-            lastName: "Toterman",
-            age: 25,
-          },
-        ]}
+        data={stores}
       />
-      <div className="my-10 max-w-xs space-y-2">
-        <Input label="First Name" id="firstName" />
-        <Input label="Last Name" id="lastName" />
-        <Input label="Age" id="age" />
+      <div className="max-w-xs">
+        <Form
+          fields={fields}
+          onSubmit={(data) => {
+            setStores([...stores, data]);
+          }}
+        />
       </div>
     </div>
   );
